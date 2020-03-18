@@ -7,9 +7,6 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-  beforeEach(function() {
-    console.log('hi');
-  });
 
   it('should be a function', function() {
     const card1 = new Card(14, 'What is Helen Keller\'s favorite color?', ['blue', 'red', 'velcro'], 'velcro');
@@ -60,7 +57,7 @@ describe('Round', function() {
     expect(round.incorrectGuesses.length).to.equal(0);
   });
 
-  it.skip('takeTurn should update turns count', function() {
+  it('takeTurn should update turns count', function() {
     const card1 = new Card(14, 'What is Helen Keller\'s favorite color?', ['blue', 'red', 'velcro'], 'velcro');
     const card2 = new Card(1, 'Why did Timmy fall off the swing?', ['he had no arms', 'his hand slipped', 'he was not strapped in'], 'he had no arms');
     const card3 = new Card(12, 'Knock Knock. Who\'s there?', ['not Timmy', 'the mailman', 'the neighbor'], 'not Timmy');
