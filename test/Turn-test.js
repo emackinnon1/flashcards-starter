@@ -6,31 +6,31 @@ const Card = require('../src/Card');
 
 describe('Card', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
-  it.skip('should be an instance of Turn', function() {
+  it('should be an instance of Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('returnGuess should return the guess', function() {
+  it('returnGuess should return the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('function', card);
 
     expect(turn.returnGuess()).to.equal('function');
   });
 
-  it.skip('returnCard should return the current card', function() {
+  it('returnCard should return the current card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('function', card);
 
     expect(turn.returnCard()).to.equal(turn.currentCard);
   });
 
-  it.skip('evaluateGuess should prove if user\'s guess was correct', function() {
+  it('evaluateGuess should prove if user\'s guess was correct', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('object', card1);
     const card2 = new Card(2, 'What data type lets you store symbols in quotation marks?', ['object', 'array', 'string'], 'string');
@@ -40,7 +40,7 @@ describe('Card', function() {
     expect(turn2.evaluateGuess()).to.equal(false);
   });
 
-  it.skip('giveFeedback should return the correct feedback to the user\'s guess', function() {
+  it('giveFeedback should return the correct feedback to the user\'s guess', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn1 = new Turn('object', card1);
     const card2 = new Card(2, 'What data type lets you store symbols in quotation marks?', ['object', 'array', 'string'], 'string');

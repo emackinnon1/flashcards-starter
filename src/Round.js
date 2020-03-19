@@ -23,10 +23,10 @@ class Round {
     this.turns++;
     this.returnCurrentCard();
 
-    if (this.turns < 2) {
-      return turn.giveFeedback();
-    } else {
+    if (this.turns === this.currentDeck.cards.length) {
       return this.endRound();
+    } else {
+      return turn.giveFeedback();
     }
   }
 
