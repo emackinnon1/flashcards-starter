@@ -43,27 +43,36 @@ describe('Round', function() {
     expect(round.turns).to.equal(1);
     round.takeTurn();
     expect(round.turns).to.equal(2);
-    round.takeTurn();
-    expect(round.turns).to.equal(3);
-    round.takeTurn();
-    expect(round.turns).to.equal(4);
   });
 
   it('takeTurn should update currentCard and next card should be new currentCard', function() {
-    round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
     expect(round.currentCard).to.deep.equal(round.currentDeck.cards[0]);
-
     round.takeTurn();
     expect(round.currentCard).to.deep.equal(round.currentDeck.cards[1]);
+    round.takeTurn();
+    expect(round.currentCard).to.deep.equal(round.currentDeck.cards[2]);
   });
 
   it('should evaluate guess', function() {
-    // round.takeTurn('blue');
-    // console.log(round.takeTurn('blue'));
     expect(round.takeTurn('blue')).to.equal('Incorrect!');
+  });
+
+  it('should record wrong guesses in incorrectGuesses array', function() {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+
+    round.takeTurn('blue');
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+
+    round.takeTurn('he had no arms');
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+
+    round.takeTurn('the mailman');
+    expect(round.incorrectGuesses).to.deep.equal([14, 12]);
+  });
+
+  it('calculatePercentCorrect should calculate and return the percentage of correct guesses', function () {
+    round.takeTurn('blue');
+    expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
 });
