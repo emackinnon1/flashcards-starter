@@ -72,7 +72,15 @@ describe('Round', function() {
 
   it('calculatePercentCorrect should calculate and return the percentage of correct guesses', function () {
     round.takeTurn('blue');
+    round.takeTurn('he had no arms');
+    round.takeTurn('the mailman');
     expect(round.calculatePercentCorrect()).to.equal(33);
+  });
+
+  it('endRound should print Round Over! message along with percent correct', function () {
+    round.takeTurn('blue');
+    round.takeTurn('he had no arms');
+    expect(round.takeTurn('the mailman')).to.equal('Round Over! You answered 33% of the questions correctly!');
   });
 
 });

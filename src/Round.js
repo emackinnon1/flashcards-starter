@@ -22,11 +22,22 @@ class Round {
 
     this.turns++;
     this.returnCurrentCard();
-    return turn.giveFeedback();
+
+    if (this.turns < 2) {
+      return turn.giveFeedback();
+    } else {
+      return this.endRound();
+    }
   }
 
   calculatePercentCorrect() {
-    return Math.floor(this.incorrectGuesses.length / this.currentDeck.cards.length * 100);
+    return Math.floor((this.currentDeck.cards.length - this.incorrectGuesses.length) / this.currentDeck.cards.length * 100);
+  }
+
+  endRound() {
+    const percentage = this.calculatePercentCorrect();
+    const message = `Round Over! You answered ${percentage}% of the questions correctly!`;
+    return message;
   }
 
 }
